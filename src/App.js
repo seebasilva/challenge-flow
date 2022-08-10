@@ -6,21 +6,32 @@ import ExtendsClimate from './components/extendsClimate';
 import SelectorCapital from './components/selectorCapital';
 
 import { requestGeolocation } from "./actions/geolocation";
+import {Container, Grid} from '@mui/material';
+import Loading from './components/loading'
 
 function App({loading, error, requestGeolocationn}) {
 
   useEffect(() => {
     requestGeolocationn()
   }, []);
-
-  if(loading) {
-    return (<p>Cargando....</p>)
-  }
+  
   return (
     <div className="App">
+      <Container>
         <SelectorCapital/>
-        <CurrentClimate/>
-        <ExtendsClimate/>
+        <div className="tarjetas-clima"> 
+          <Grid container spacing={3}>
+            <Grid item xs={12} sm={4}>
+              <CurrentClimate/>
+            </Grid>
+            <Grid item xs={12} sm={8}>
+              <ExtendsClimate/>
+            </Grid>
+          </Grid>
+          </div>
+          <Loading loading={loading}/>
+      </Container>
+    
     </div>
   );
 }
