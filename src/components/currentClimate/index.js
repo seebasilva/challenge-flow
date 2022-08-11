@@ -29,12 +29,11 @@ const CurrentClimate = ({climate, timezone, loadingClimate, errorGeo}) => {
                             <p className="primera-mayuscula">{getStringDateNow()}</p>
                             <p>Temperatura:</p>
                             <p className="temp-actual">{Math.round(climate.temp)}°</p>
-                            <p>Sensacion termica: {Math.round(climate.feels_like)}°</p>
+                            <p>Sensación térmica: {Math.round(climate.feels_like)}°</p>
                             <p>Humedad: {climate.humidity}%</p>
-                            <p>Presion: {climate.pressure} hPa</p>
+                            <p>Presión: {climate.pressure} hPa</p>
                         </CardContent>
                     </>
-                    
                 :
                     <>
                         {!errorGeo ? <CardHeader title="Cargando..."/> 
@@ -45,7 +44,6 @@ const CurrentClimate = ({climate, timezone, loadingClimate, errorGeo}) => {
                         </CardContent>}
                     
                     </>
-
                 }
             </Card>
         </Box>
