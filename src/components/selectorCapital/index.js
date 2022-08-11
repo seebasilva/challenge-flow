@@ -24,9 +24,9 @@ const SelectorCapital = ({requestClimateByCapitalName}) => {
                     style={{backgroundColor:'#fff'}}
                 >
                     <MenuItem value="buenos-aires">Buenos Aires</MenuItem>
-                    <MenuItem value="cordoba">Cordoba</MenuItem>
+                    <MenuItem value="cordoba">Córdoba</MenuItem>
                     <MenuItem value="salta">Salta</MenuItem>
-                    <MenuItem value="tucuman">Tucuman</MenuItem>
+                    <MenuItem value="tucuman">Tucumán</MenuItem>
                     <MenuItem value="mendoza">Mendoza</MenuItem>
                 </Select>
             </FormControl>
@@ -36,9 +36,9 @@ const SelectorCapital = ({requestClimateByCapitalName}) => {
 }
 
 const mapStateToProps = state => ({
-  });
-  const mapDispatchToProps = dispatch => ({
-    requestClimateByCapitalName: name => dispatch(requestClimateByCapitalName(name)),
-  });
+});
+const mapDispatchToProps = dispatch => ({
+requestClimateByCapitalName: name => dispatch(requestClimateByCapitalName(name)),
+});
   
-  export default connect(mapStateToProps, mapDispatchToProps)(SelectorCapital);
+export default connect(mapStateToProps, mapDispatchToProps)(SelectorCapital);
