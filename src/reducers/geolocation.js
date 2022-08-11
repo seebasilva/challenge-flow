@@ -11,7 +11,8 @@ export default function geolocationReducer(state = {loading: false}, action) {
             return {
                 ...state,
                 position: action.position,
-                loading: false
+                loading: false,
+                error: false
             }
         case actionsType.GEOLOCATION_ERROR:
             return {

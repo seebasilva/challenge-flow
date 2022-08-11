@@ -49,6 +49,6 @@
   width: 100%;
   border-radius: 50px;
 }
-.primera-mayuscula:first-letter {
+.primera-mayuscula:first-letter , .MuiCardHeader-title::first-letter{
   text-transform: uppercase;
 }
