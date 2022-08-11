@@ -29,7 +29,7 @@ function App({loading,loadingClimate, position, requestGeolocationn, requestClim
               <CurrentClimate/>
             </Grid>
             <Grid item xs={12} sm={8}>
-              <ExtendsClimate/>
+                <ExtendsClimate/>              
             </Grid>
           </Grid>
           </div>
