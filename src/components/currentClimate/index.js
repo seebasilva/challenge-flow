@@ -1,17 +1,22 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Box, Card,CardHeader,CardContent, Avatar} from '@mui/material';
-import { getStringDateNow } from '../../util/fechas';
+import { getStringDateNow, setFavicon, setTitle } from '../../util/fechas';
 
 const CurrentClimate = ({climate, timezone, loadingClimate, errorGeo}) => {
     let zona
     let pais
     let provincia
+    const imgClimate = `https://openweathermap.org/img/wn/${climate?.weather[0].icon}.png`
+    
+    
 
     if(timezone) {
         zona = timezone.split('/');
         pais = zona[1];
-        provincia = zona[2].replace('_', ' ')
+        provincia = zona[2].replace('_', ' ');
+        setFavicon(imgClimate);
+        setTitle(`${provincia}, ${pais}`)
     }
 
     return (
@@ -23,7 +28,7 @@ const CurrentClimate = ({climate, timezone, loadingClimate, errorGeo}) => {
                     <Avatar
                         alt={climate.weather[0].description}
                         title={climate.weather[0].description}
-                        src={`https://openweathermap.org/img/wn/${climate.weather[0].icon}.png`}
+                        src={imgClimate}
                     />}/>
                         <CardContent>
                             <p className="primera-mayuscula">{getStringDateNow()}</p>
