@@ -49,3 +49,6 @@
   width: 100%;
   border-radius: 50px;
 }
+.primera-mayuscula:first-letter {
+  text-transform: uppercase;
+}
