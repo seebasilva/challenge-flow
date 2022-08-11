@@ -16,7 +16,8 @@ export default function climateReducer(state = {loading: false}, action) {
             return {
                 ...state,
                 currentClimate: action.climate,
-                loading:false
+                loading:false,
+                error: false
             }
         case actionsType.CLIMATE_BY_POSITION_ERROR:
         return {
