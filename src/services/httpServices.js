@@ -1,4 +1,4 @@
 import axios from "axios";
 
-export const httpGet = (uri, options) => axios.get( uri, options);
-export const httpPost = (uri, params, options) => axios.post (uri, params, options);
+export const httpGet = (uri) => axios.get( uri );
+export const httpPost = (uri, params) => axios.post (uri, params);
