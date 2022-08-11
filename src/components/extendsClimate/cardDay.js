@@ -1,14 +1,21 @@
 import React from 'react';
-import {Box, Card,CardHeader,CardContent} from '@mui/material';
+import {Box, Card,CardHeader,CardContent, Avatar} from '@mui/material';
+import { getDayByMoreDays } from '../../util/fechas';
 
-const CarDay = () => {
+const CarDay = ({climate, index}) => {
     return (
         <Box>
             <Card>
-                <CardHeader title="Jueves" avatar="A"/>
+                <CardHeader title={getDayByMoreDays(index+1)} avatar={
+                    <Avatar
+                        alt={climate.weather[0].description}
+                        title={climate.weather[0].description}
+                        src={`https://openweathermap.org/img/wn/${climate.weather[0].icon}.png`}
+                    />}
+                 />
                 <CardContent>
-                    <p className='temp-max-min'>Min:</p>
-                    <p className='temp-max-min'>Max:</p>
+                    <p className='temp-max-min'>Min: {Math.round(climate.temp.min)}°</p>
+                    <p className='temp-max-min'>Max: {Math.round(climate.temp.max)}°</p>
                 </CardContent>
             </Card>
         </Box>

@@ -14,12 +14,12 @@ const SelectorCapital = ({requestClimateByCapitalName}) => {
     return (
         <Box className="selector-capital">
             <FormControl fullWidth>
-                <InputLabel id="label-city">Capital</InputLabel>
+                <InputLabel id="label-city">Provincia</InputLabel>
                 <Select
                     labelId="label-city"
                     id="city"
                     value={city}
-                    label="Capital"
+                    label="Provincia"
                     onChange={handleChange}
                     style={{backgroundColor:'#fff'}}
                 >
