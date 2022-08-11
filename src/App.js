@@ -4,16 +4,20 @@ import './App.css';
 import CurrentClimate from './components/currentClimate';
 import ExtendsClimate from './components/extendsClimate';
 import SelectorCapital from './components/selectorCapital';
+import Loading from './components/loading';
 
 import { requestGeolocation } from "./actions/geolocation";
+import { requestClimateByPosition } from "./actions/climate";
 import {Container, Grid} from '@mui/material';
-import Loading from './components/loading'
 
-function App({loading, error, requestGeolocationn}) {
+function App({loading,loadingClimate, position, requestGeolocationn, requestClimateByPosition}) {
 
   useEffect(() => {
     requestGeolocationn()
   }, []);
+  useEffect(() => {
+    requestClimateByPosition(position)
+  }, [position]);
   
   return (
     <div className="App">
@@ -29,18 +33,21 @@ function App({loading, error, requestGeolocationn}) {
             </Grid>
           </Grid>
           </div>
-          <Loading loading={loading}/>
+          <Loading loading={loading || loadingClimate}/>
       </Container>
     
     </div>
   );
 }
 const mapStateToProps = state => ({
+  position: state.geolocation.position,
   loading: state.geolocation.loading,
-  error: state.geolocation.error
+  error: state.geolocation.error,
+  loadingClimate: state.climate.loading
 });
 const mapDispatchToProps = dispatch => ({
   requestGeolocationn: () => dispatch(requestGeolocation()),
+  requestClimateByPosition: position => dispatch(requestClimateByPosition(position)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
