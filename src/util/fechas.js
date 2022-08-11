@@ -20,3 +20,12 @@ export const getDayByMoreDays = (days) => {
     const fechaHoy = date.toLocaleDateString('es-AR', options)
     return fechaHoy;
 }
+
+export const setFavicon = (url) => {
+    const favicon = document.getElementById("favicon");
+    favicon.href = url || "https://openweathermap.org/img/wn/01d.png";
+}
+
+export const setTitle = (title) => {
+    document.title = `${title} | Challenge Flow App`;
+}
